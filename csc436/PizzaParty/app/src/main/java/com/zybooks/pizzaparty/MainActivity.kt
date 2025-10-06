@@ -63,9 +63,9 @@ fun PizzaPartyScreen(modifier: Modifier = Modifier) {
         )
         NumberField(
             labelText = "Number of people?",
-            modifier = modifier.padding(bottom = 16.dp).fillMaxWidth(),
             textInput = numPeopleInput,
             onValueChange = { numPeopleInput = it },
+            modifier = modifier.padding(bottom = 16.dp).fillMaxWidth()
         )
         RadioGroup(
             labelText = "How hungry?",
@@ -97,8 +97,6 @@ fun NumberField(
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var textInput by remember { mutableStateOf("") }
-
     TextField(
         value = textInput,
         onValueChange = onValueChange,
