@@ -218,3 +218,12 @@ fun AdoptScreen(
    }
 }
 
+@OptIn(ExperimentalGlancePreviewApi::class)
+@Preview
+@Composable
+fun PreviewAdoptScreen() {
+   val pet = PetDataSource().loadPets()[0]
+   PetAdoptionTheme {
+      AdoptScreen(pet)
+   }
+}
