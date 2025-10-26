@@ -74,3 +74,61 @@ fun PreviewListScreen() {
       )
    }
 }
+
+@Composable
+fun DetailScreen(
+   pet: Pet,
+   onAdoptClick: () -> Unit,
+   modifier: Modifier = Modifier,
+   onUpClick: () -> Unit = { }
+) {
+   val gender = if (pet.gender == PetGender.MALE) "Male" else "Female"
+
+   Scaffold(
+      topBar = {
+         PetAppBar(
+            title = "Details",
+         )
+      }
+   ) { innerPadding ->
+      Column(
+         modifier = modifier.padding(innerPadding)
+      ) {
+         Image(
+            painter = painterResource(pet.imageId),
+            contentDescription = pet.name,
+            contentScale = ContentScale.FillWidth
+         )
+         Column(
+            verticalArrangement = Arrangement.spacedBy(6.dp),
+            modifier = modifier.padding(6.dp)
+         ) {
+            Row(
+               horizontalArrangement = Arrangement.SpaceBetween,
+               verticalAlignment = Alignment.CenterVertically,
+               modifier = modifier.fillMaxWidth()
+            ) {
+               Text(
+                  text = pet.name,
+                  style = MaterialTheme.typography.headlineMedium
+               )
+               Button(onClick = onAdoptClick) {
+                  Text("Adopt Me!")
+               }
+            }
+            Text(
+               text = "Gender: $gender",
+               style = MaterialTheme.typography.bodyLarge
+            )
+            Text(
+               text = "Age: ${pet.age}",
+               style = MaterialTheme.typography.bodyLarge
+            )
+            Text(
+               text = pet.description,
+               style = MaterialTheme.typography.bodyMedium
+            )
+         }
+      }
+   }
+}
