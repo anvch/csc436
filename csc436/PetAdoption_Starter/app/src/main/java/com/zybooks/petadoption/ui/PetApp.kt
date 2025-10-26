@@ -132,3 +132,15 @@ fun DetailScreen(
       }
    }
 }
+
+@Preview
+@Composable
+fun PreviewDetailScreen() {
+   val pet = PetDataSource().loadPets()[0]
+   PetAdoptionTheme {
+      DetailScreen(
+         pet = pet,
+         onAdoptClick = { }
+      )
+   }
+}
