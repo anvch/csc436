@@ -157,7 +157,7 @@ fun ListScreen(
 fun PreviewListScreen() {
    PetAdoptionTheme {
       ListScreen(
-         petList = PetDataSource().loadPets(),
+         // petList = PetDataSource().loadPets(),
          onImageClick = { }
       )
    }
@@ -232,8 +232,8 @@ fun PreviewDetailScreen() {
    val pet = PetDataSource().loadPets()[0]
    PetAdoptionTheme {
       DetailScreen(
-         pet = pet,
-         onAdoptClick = { }
+         petId = pet.id,
+         onAdoptClick = {}
       )
    }
 }
@@ -246,7 +246,7 @@ fun AdoptScreen(
    onUpClick: () -> Unit = { }
 ) {
    val pet = viewModel.getPet(petId)
-   
+
    Scaffold(
       topBar = {
          PetAppBar(
@@ -293,6 +293,6 @@ fun AdoptScreen(
 fun PreviewAdoptScreen() {
    val pet = PetDataSource().loadPets()[0]
    PetAdoptionTheme {
-      AdoptScreen(pet)
+      AdoptScreen(pet.id)
    }
 }
