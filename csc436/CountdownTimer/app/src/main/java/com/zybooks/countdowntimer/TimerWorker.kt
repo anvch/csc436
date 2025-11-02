@@ -12,6 +12,7 @@ import com.zybooks.countdowntimer.ui.timerText
 import kotlinx.coroutines.delay
 const val CHANNEL_ID_TIMER = "channel_timer"
 const val KEY_MILLIS_REMAINING = "com.zybooks.countdowntimer.MILLIS_LEFT"
+const val NOTIFICATION_ID = 0
 
 class TimerWorker(context: Context, parameters: WorkerParameters) :
     CoroutineWorker(context, parameters) {
@@ -58,6 +59,18 @@ class TimerWorker(context: Context, parameters: WorkerParameters) :
 
     private fun postTimerNotification(text: String) {
         // TODO: Create a notification
+        // Create notification with various properties
+        val notification = NotificationCompat.Builder(applicationContext, CHANNEL_ID_TIMER)
+            .setSmallIcon(android.R.drawable.ic_dialog_info)
+            .setContentTitle(applicationContext.getString(R.string.app_name))
+            .setContentText(text)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
+            .build()
+
+        // Post notification
+        if (notificationManager.areNotificationsEnabled()) {
+            notificationManager.notify(NOTIFICATION_ID, notification)
+        }
 
         Log.d("TimerWorker", text)
     }
