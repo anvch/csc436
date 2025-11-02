@@ -45,6 +45,19 @@ class TimerViewModel : ViewModel() {
       totalMillis = (selectedHour * 60 * 60 + selectedMinute * 60 + selectedSecond) * 1000L
 
       // TODO: Start coroutine that makes the timer count down
+      if (totalMillis > 0) {
+         isRunning = true
+         remainingMillis = totalMillis
+
+         timerJob = viewModelScope.launch {
+            while (remainingMillis > 0) {
+               delay(1000)
+               remainingMillis -= 1000
+            }
+
+            isRunning = false
+         }
+      }
 
    }
 
