@@ -8,7 +8,9 @@ import androidx.compose.runtime.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.anvch.soundgame.R
 
 @Composable
 fun StartScreen(onStart: () -> Unit) {
@@ -27,13 +29,13 @@ fun StartScreen(onStart: () -> Unit) {
         contentAlignment = Alignment.Center
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Sound Runner Game", style = MaterialTheme.typography.headlineMedium)
+            Text(stringResource(R.string.app_name), style = MaterialTheme.typography.headlineMedium)
             Spacer(Modifier.height(24.dp))
 
             Button(
                 onClick = { permissionLauncher.launch(Manifest.permission.RECORD_AUDIO) }
             ) {
-                Text("Start Game")
+                Text(stringResource(R.string.start_game))
             }
         }
     }

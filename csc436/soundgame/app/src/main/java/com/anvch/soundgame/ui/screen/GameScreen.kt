@@ -10,10 +10,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.anvch.soundgame.R
 import com.anvch.soundgame.viewmodel.GameViewModel
+
 
 @SuppressLint("MissingPermission")
 @Composable
@@ -27,6 +34,8 @@ fun GameScreen(
     val running by vm.gameRunning.collectAsState()
     val countdown by vm.countdown.collectAsState()
     val micDb by vm.micDb.collectAsState()
+    val bird = ImageBitmap.imageResource(id = R.drawable.bird)
+
 
     LaunchedEffect(true) { vm.startGame() }
 
@@ -47,16 +56,28 @@ fun GameScreen(
                 }
         ) {
             // Player
-            drawCircle(
-                color = Color.Blue,
-                radius = size.minDimension * 0.05f,
-                center = Offset(size.width * 0.15f, playerY)
+//            drawCircle(
+//                color = Color.Blue,
+//                radius = size.minDimension * 0.05f,
+//                center = Offset(size.width * 0.15f, playerY)
+//            )
+            drawImage(
+                image = bird,
+                dstSize = IntSize(
+                    (size.minDimension * 0.1f).toInt(),   // width
+                    (size.minDimension * 0.1f).toInt()    // height
+                ),
+                dstOffset = IntOffset(
+                    (size.width * 0.15f).toInt(),
+                    (playerY - (size.minDimension * 0.05f)).toInt()
+                )
             )
+
 
             // Obstacles
             obstacles.forEach { o ->
                 drawRect(
-                    color = Color.Red,
+                    color = Color.Green,
                     topLeft = Offset(o.x, o.y),
                     size = Size(o.width, o.height)
                 )
@@ -80,7 +101,7 @@ fun GameScreen(
         }
 
         Text(
-            text = "Score: $score",
+            text = stringResource(R.string.score, score),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier
                 .align(Alignment.TopStart)
@@ -89,9 +110,9 @@ fun GameScreen(
 
         // DEBUG
         Text(
-            text = "Mic dB: ${"%.1f".format(micDb)}",
+            text = stringResource(R.string.mic_db, "%.1f".format(micDb)),
             style = MaterialTheme.typography.titleMedium,
-            color = Color.Green,
+            color = Color.Blue,
             modifier = Modifier
                 .align(Alignment.TopEnd)
                 .padding(24.dp)
