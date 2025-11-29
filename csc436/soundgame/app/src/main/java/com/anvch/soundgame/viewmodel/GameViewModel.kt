@@ -39,7 +39,7 @@ class GameViewModel : ViewModel() {
     private val baseSize get() = minOf(screenWidth, screenHeight)
     private val groundY get() = screenHeight * 0.82f
     private val playerRadius get() = baseSize * 0.05f
-    private val maxJumpHeight get() = baseSize * 0.15f
+    private val maxJumpHeight get() = baseSize * 0.25f
     private val obstacleSpeed get() = baseSize * 0.30f
     private val playerX get() = screenWidth * 0.15f
     private val obstacleGapRatio = 0.35f
