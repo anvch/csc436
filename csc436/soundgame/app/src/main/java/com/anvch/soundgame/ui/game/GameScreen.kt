@@ -26,6 +26,7 @@ fun GameScreen(
     val score by vm.score.collectAsState()
     val running by vm.gameRunning.collectAsState()
     val countdown by vm.countdown.collectAsState()
+    val micDb by vm.micDb.collectAsState()
 
     LaunchedEffect(true) { vm.startGame() }
 
@@ -85,5 +86,16 @@ fun GameScreen(
                 .align(Alignment.TopStart)
                 .padding(24.dp)
         )
+
+        // DEBUG
+        Text(
+            text = "Mic dB: ${"%.1f".format(micDb)}",
+            style = MaterialTheme.typography.titleMedium,
+            color = Color.Green,
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .padding(24.dp)
+        )
+
     }
 }
