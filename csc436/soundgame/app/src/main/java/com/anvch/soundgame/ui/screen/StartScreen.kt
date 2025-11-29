@@ -1,4 +1,4 @@
-package com.anvch.soundgame.ui.start
+package com.anvch.soundgame.ui.screen
 
 import android.Manifest
 import androidx.activity.compose.rememberLauncherForActivityResult

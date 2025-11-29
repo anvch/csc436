@@ -1,4 +1,4 @@
-package com.anvch.soundgame.theme
+package com.anvch.soundgame.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

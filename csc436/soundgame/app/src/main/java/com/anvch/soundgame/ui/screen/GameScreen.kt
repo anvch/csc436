@@ -1,4 +1,4 @@
-package com.anvch.soundgame.ui.game
+package com.anvch.soundgame.ui.screen
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Canvas

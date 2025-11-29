@@ -1,4 +1,4 @@
-package com.anvch.soundgame.ui.gameover
+package com.anvch.soundgame.ui.screen
 
 import androidx.compose.material3.*
 import androidx.compose.runtime.*

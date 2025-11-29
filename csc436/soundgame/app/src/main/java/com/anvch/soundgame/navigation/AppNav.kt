@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.anvch.soundgame.ui.game.GameScreen
-import com.anvch.soundgame.ui.gameover.GameOverScreen
-import com.anvch.soundgame.ui.start.StartScreen
+import com.anvch.soundgame.ui.screen.GameScreen
+import com.anvch.soundgame.ui.screen.GameOverScreen
+import com.anvch.soundgame.ui.screen.StartScreen
 
 @Composable
 fun AppNav(navController: NavHostController) {
