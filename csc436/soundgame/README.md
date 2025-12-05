@@ -1,5 +1,5 @@
 # Snappy Bird 
-This app is a sound-based game mimicking Flappy Bird, created for CC 436's final project. Instead of taps, the way to get the bird to jump and avoid obstacles is sound-based (i.e. by snapping).
+This app is a sound-based game mimicking Flappy Bird, created for CSC 436's final project. Instead of taps, the way to get the bird to jump and avoid obstacles is sound-based (i.e. by snapping).
 
 ### [Click to View Demo Video](https://drive.google.com/file/d/1iar9HcFFp09V5egTsvuD3rDJ1caHNbKm/view?usp=sharing)
 
