@@ -8,6 +8,7 @@ This app is a sound-based game mimicking Flappy Bird, created for CSC 436's fina
 
 ### Features + Dependencies
 AudioRecord
+
 You will need to have microphone input functionality and permissions to run this app successfully. I attempted running on the device emulator, but the sound input did not work so I tested on a physical device.
 
 ### Extra!
